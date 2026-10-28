@@ -40,13 +40,15 @@ The output name matches the portal:
 
 The Flow Service API allows delegated user permissions only. `Flows.Read.All` is enough to read runs. Pick one of these:
 
-1. Set `FLOW_ACCESS_TOKEN` to a bearer token for `https://service.flow.microsoft.com/`.
-2. Sign in with Azure CLI. The tool runs `az account get-access-token --resource https://service.flow.microsoft.com/`.
+1. Sign in with Azure CLI. The tool runs `az account get-access-token --resource https://service.flow.microsoft.com/`. If `az` is not installed, `az login` fails with `command not found`. Install it, then sign in:
 
 ```bash
+brew install azure-cli
 az login
 go run ./cmd/flowruns export --environment <env> --flow <flow> --status Failed
 ```
+
+2. Set `FLOW_ACCESS_TOKEN` to a bearer token for `https://service.flow.microsoft.com/`.
 
 3. Device code, when `FLOW_TENANT_ID` and `FLOW_CLIENT_ID` are set. Register a public client in Entra ID, enable public client flows, add the delegated Flow Service permission `Flows.Read.All`, and grant admin consent.
 

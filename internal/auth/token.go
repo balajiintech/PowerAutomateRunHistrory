@@ -41,7 +41,7 @@ func AccessToken(ctx context.Context) (string, error) {
 
 func azureCLIToken(ctx context.Context) (string, error) {
 	if _, err := exec.LookPath("az"); err != nil {
-		return "", fmt.Errorf("azure cli not found")
+		return "", fmt.Errorf("azure cli not found (install with: brew install azure-cli)")
 	}
 	cmd := exec.CommandContext(ctx, "az", "account", "get-access-token",
 		"--resource", "https://service.flow.microsoft.com/",

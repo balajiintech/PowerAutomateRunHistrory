@@ -1,5 +1,6 @@
 /out/
 /bin/
+local-readme.md
 *.csv
 .env
 .env.*
