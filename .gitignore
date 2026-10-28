@@ -1,0 +1,8 @@
+/out/
+/bin/
+*.csv
+.env
+.env.*
+flowruns
+*.exe
+*.test
